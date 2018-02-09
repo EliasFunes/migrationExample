@@ -7,8 +7,11 @@ const postgres_con = require('./db_connections/postgreSQL')
 const MongoClient = require('mongodb').MongoClient 
 
 //crear una coneccion
+const production = "mongodb://admin:ZBTTYquBL0OprSCJ@productsfinder-shard-00-00-ipql1.mongodb.net:27017,productsfinder-shard-00-01-ipql1.mongodb.net:27017,productsfinder-shard-00-02-ipql1.mongodb.net:27017/test?ssl=true&replicaSet=productsfinder-shard-0&authSource=admin"
+const local = 'mongodb://localhost:27017/productsfinder'
+
 var db
-MongoClient.connect('mongodb://localhost:27017/productsfinder', (err, _db) => {
+MongoClient.connect(production, (err, _db) => {
     db = _db
 })
 
